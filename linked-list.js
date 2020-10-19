@@ -1,3 +1,12 @@
+'use strict';
+
+class _Node {
+    constructor(value, next) {
+        this.value = value;
+        this.next = next;
+    }
+};
+
 class LinkedList {
     constructor() {
         this.head = null;
@@ -17,6 +26,42 @@ class LinkedList {
                 tempNode = tempNode.next;
             }
             tempNode.next = new _Node(item, null);
+        }
+    }
+
+    insertBefore(insertItem, key) {
+        // start at the head
+        let currNode = this.head;
+        
+        while (key !== currNode.next.value) {
+            currNode = currNode.next;
+        }
+
+        let findValue = this.find(key);
+
+        // create the new node and set its value to the next list item
+        currNode.next = new _Node(insertItem, findValue);
+    }
+
+    insertAfter(insertItem, key) {
+        let findValue = this.find(key);
+        let tempNext = findValue.next;
+
+        // create the new node after the value
+        findValue.next = new _Node(insertItem, tempNext);
+    }
+
+    insertAt(insertItem, position) {
+        let currNode = this.head;
+        let count = 0;
+
+        // do this until you get to the end of the list
+        while (currNode.next !== null) {
+            count++;
+            if (count === position) {
+                this.insertBefore(insertItem, currNode.value);
+            }
+            currNode = currNode.next;
         }
     }
 
@@ -56,4 +101,6 @@ class LinkedList {
         }
         return currNode;
     }
-}
+};
+
+module.exports = LinkedList;
