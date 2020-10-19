@@ -88,3 +88,26 @@ console.log(size(SLL));
 console.log(isEmpty(SLL));
 console.log(findPrevious(SLL, 'Athena'));
 console.log(findLast(SLL));
+
+// Mystery program
+// Analyze the following function (without running it in an IDE) to determine what problem it is trying to solve. 
+// What is the time complexity of this algorithm?
+
+// Answer: This function searches for nodes with the same value and removes the duplicate from the list. 
+// O(n^2)
+
+function WhatDoesThisProgramDo(lst) {
+    let current = lst.head;
+    while (current !== null) {
+        let newNode = current;
+        while (newNode.next !== null) {
+            if (newNode.next.value === current.value) {
+                newNode.next = newNode.next.next;
+            }
+            else {
+                newNode = newNode.next;
+            }
+        }
+        current = current.next;
+    }
+}
