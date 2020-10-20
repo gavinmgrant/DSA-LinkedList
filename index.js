@@ -168,4 +168,66 @@ const cycleList = list => {
     return false;
 }
 
-console.log(cycleList(SLL));
+// console.log(cycleList(SLL));
+
+// Sorting a list
+
+class _Node {
+    constructor(value, next) {
+        this.value = value;
+        this.next = next;
+    }
+};
+
+const insertionSort = (list) => {
+    let result = null;
+    let currNode = list.head;
+    let next;
+
+    while (currNode !== null) {
+        next = currNode.next;
+
+        // sort the linked list till the current element and store it
+        result = sortedInsert(result, currNode);
+        currNode = next;
+    }
+
+    // return the sorted list
+    return result;
+}
+
+const sortedInsert = (sorted, newNode) => {
+    // temporary node to swap the values
+    let temp = new _Node();
+    let current = temp;
+    temp.next = sorted;
+
+    // sort the list based on the specified order
+    while (current.next !== null && current.next.value < newNode.value) {
+        current = current.next;
+    }
+
+    // swap the values
+    newNode.next = current.next;
+    current.next = newNode;
+
+    // return the sorted list
+    return temp.next;
+}
+
+let listToSort = new LinkedList();
+
+const mainSort = () => {
+    listToSort.insertFirst(3);
+    listToSort.insertLast(2);
+    listToSort.insertLast(5);
+    listToSort.insertLast(7);
+    listToSort.insertLast(1);
+
+    return listToSort;
+}
+
+mainSort();
+console.log(listToSort);
+const sortedList = insertionSort(listToSort);
+console.log(sortedList);
