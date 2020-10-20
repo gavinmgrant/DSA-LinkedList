@@ -83,11 +83,11 @@ const findLast = list => {
 };
 
 main();
-console.log(display(SLL));
-console.log(size(SLL));
-console.log(isEmpty(SLL));
-console.log(findPrevious(SLL, 'Athena'));
-console.log(findLast(SLL));
+// console.log(display(SLL));
+// console.log(size(SLL));
+// console.log(isEmpty(SLL));
+// console.log(findPrevious(SLL, 'Athena'));
+// console.log(findLast(SLL));
 
 // Mystery program
 // Analyze the following function (without running it in an IDE) to determine what problem it is trying to solve. 
@@ -128,3 +128,25 @@ const reverseList = list => {
 }
 
 console.log(reverseList(SLL));
+
+// Middle of a list
+
+const middleList = list => {
+    let singleStep = list.head;
+    let doubleStep = list.head;
+
+    if (!list) {
+        return null;
+    }
+    // go through list at twice the speed, so a single speed iteration will end at the halfway point
+    while (doubleStep !== null && doubleStep.next !== null) {
+        // step twice through list
+        doubleStep = doubleStep.next.next;
+        // step once through list
+        singleStep = singleStep.next;
+    }
+
+    return singleStep.value;
+}
+
+console.log(middleList(SLL));
