@@ -111,3 +111,20 @@ function WhatDoesThisProgramDo(lst) {
         current = current.next;
     }
 }
+
+// Reverse a list
+
+const reverseList = list => {
+    const reversedList = new LinkedList();
+
+    let currNode = list.head;
+
+    while (currNode !== null) {
+        reversedList.insertFirst(currNode.value);
+        currNode = currNode.next;
+    };
+
+    return display(reversedList);
+}
+
+console.log(reverseList(SLL));
