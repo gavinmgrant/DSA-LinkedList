@@ -127,7 +127,7 @@ const reverseList = list => {
     return display(reversedList);
 }
 
-console.log(reverseList(SLL));
+// console.log(reverseList(SLL));
 
 // Middle of a list
 
@@ -149,4 +149,23 @@ const middleList = list => {
     return singleStep.value;
 }
 
-console.log(middleList(SLL));
+// console.log(middleList(SLL));
+
+// Cycle in a list
+
+const cycleList = list => {
+    let currNode = list.head;
+    let values = [];
+
+    while (currNode !== null) {
+        if (values.includes(currNode.value)) {
+            return true;
+        }
+        values.push(currNode.value);
+        currNode = currNode.next;
+    }
+
+    return false;
+}
+
+console.log(cycleList(SLL));
