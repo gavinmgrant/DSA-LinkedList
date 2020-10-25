@@ -1,4 +1,4 @@
-const LinkedList = require('./linked-list');
+// import LinkedList from './linked-list';
 
 const SLL = new LinkedList();
 
@@ -18,6 +18,9 @@ const main = () => {
     return SLL;
 };
 
+console.log(main());
+
+
 // Supplemental functions for a linked list
 
 const display = list => {
@@ -31,6 +34,8 @@ const display = list => {
     
     return result;
 };
+
+// console.log(display(main()));
 
 const size = list => {
     let currNode = list.head;
@@ -82,7 +87,7 @@ const findLast = list => {
     return currNode.value;
 };
 
-main();
+// main();
 // console.log(display(SLL));
 // console.log(size(SLL));
 // console.log(isEmpty(SLL));
@@ -171,13 +176,14 @@ const cycleList = list => {
 // console.log(cycleList(SLL));
 
 // Sorting a list
-
+/*
 class _Node {
     constructor(value, next) {
         this.value = value;
         this.next = next;
     }
 };
+*/
 
 const insertionSort = (list) => {
     let result = null;
@@ -227,7 +233,7 @@ const mainSort = () => {
     return listToSort;
 }
 
-mainSort();
-console.log(listToSort);
-const sortedList = insertionSort(listToSort);
-console.log(sortedList);
+// mainSort();
+// console.log(listToSort);
+// const sortedList = insertionSort(listToSort);
+// console.log(sortedList);
